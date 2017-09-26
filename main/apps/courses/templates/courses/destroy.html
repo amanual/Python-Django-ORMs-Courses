@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destroy</title>
+    <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Mukta', sans-serif;
+        }
+        .no{            
+            background-color:darkgrey;
+            border-color: black;
+            margin-left: 52px;
+        }
+        .yes{
+            background-color: red;
+            color: white;
+            border-color: black;
+            margin-left: 75px;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Are you sure you want to delete the following course?</h3>
+    <form action="/destroy/{{course.id}}" method="Post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td>{{course.name}}</td>            
+            </tr>
+            <tr>
+                <td>Description: </td>
+                <td>{{course.desc}}</td>
+            </tr>
+        </table>
+        <input type="submit" formaction="/" name="no" value="No" class ="no"><input type="submit" name="yes" value="Yes! I want to delete this" class = "yes">
+    </form>
+</body>
+</html>
